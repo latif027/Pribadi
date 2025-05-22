@@ -1,319 +1,293 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <title>Kopi Hitam</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter&display=swap"
-    rel="stylesheet"
-  />
-  <script
-    src="https://kit.fontawesome.com/a076d05399.js"
-    crossorigin="anonymous"
-  ></script>
-  <style>
-    :root {
-      --primary: #00f7ff;
-      --bg-dark: #0a0f1a;
-      --bg-light: #f0f0f0;
-      --text-dark: #fff;
-      --text-light: #111;
-      --link-bg: rgba(0, 247, 255, 0.1);
-      --link-hover: rgba(0, 247, 255, 0.2);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Inter", sans-serif;
-      background: linear-gradient(135deg, #000000, #001f3f, #005577);
-      background-size: 400% 400%;
-      animation: bgFlow 20s ease infinite;
-      color: var(--text-dark);
-      transition: background 0.4s, color 0.4s;
-      overflow-x: hidden;
-    }
-
-    body.light {
-      background: var(--bg-light);
-      color: var(--text-light);
-    }
-
-    @keyframes bgFlow {
-      0% {
-        background-position: 0% 50%;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0f1a" />
+    <meta name="description" content="Link Bio Muhammad Latiful Minan - Instagram, YouTube, TikTok, dan lainnya." />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
+    <title>Kopi Hitam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+      :root {
+        --primary: #00f7ff;
+        --bg-dark: #0a0f1a;
+        --bg-light: #f0f0f0;
+        --text-dark: #fff;
+        --text-light: #111;
+        --link-bg: rgba(0, 247, 255, 0.1);
+        --link-hover: rgba(0, 247, 255, 0.2);
       }
-      50% {
-        background-position: 100% 50%;
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      100% {
-        background-position: 0% 50%;
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(135deg, #000000, #001f3f, #005577);
+        background-size: 400% 400%;
+        animation: bgFlow 20s ease infinite;
+        color: var(--text-dark);
+        transition: background 0.4s, color 0.4s;
+        overflow-x: hidden;
       }
-    }
 
-    .container {
-      max-width: 450px;
-      margin: 60px auto;
-      text-align: center;
-      position: relative;
-      padding: 20px;
-    }
-
-    .profile-img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 3px solid var(--primary);
-      box-shadow: 0 0 20px var(--primary);
-      object-fit: cover;
-      margin-bottom: 15px;
-    }
-
-    h1 {
-      font-family: "Orbitron", sans-serif;
-      font-size: 1.5em;
-      color: var(--primary);
-    }
-
-    .bio {
-      margin: 10px 0 30px;
-      font-size: 1em;
-      font-style: italic;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid var(--primary);
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-      min-height: 1.3em;
-    }
-
-    .links a {
-      display: block;
-      margin: 12px auto;
-      max-width: 300px;
-      padding: 12px;
-      background: var(--link-bg);
-      color: var(--primary);
-      text-decoration: none;
-      border: 1px solid var(--primary);
-      border-radius: 12px;
-      backdrop-filter: blur(4px);
-      transition: all 0.4s ease;
-      animation: fadeInLink 0.6s ease forwards;
-      opacity: 0;
-    }
-
-    .links a:hover {
-      background: var(--link-hover);
-      transform: scale(1.05);
-      box-shadow: 0 0 15px var(--primary);
-    }
-
-    .links a i {
-      margin-right: 10px;
-    }
-
-    .qr-code {
-      margin-top: 30px;
-      color: var(--primary);
-      font-family: "Orbitron", sans-serif;
-    }
-
-    .toggle-btn {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      background: transparent;
-      border: 2px solid var(--primary);
-      color: var(--primary);
-      border-radius: 50%;
-      padding: 10px;
-      cursor: pointer;
-      z-index: 100;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .music-btn {
-      top: 65px;
-    }
-
-    .toggle-btn:hover {
-      background: var(--primary);
-      color: #000;
-    }
-
-    @keyframes fadeInLink {
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      body.light {
+        background: var(--bg-light);
+        color: var(--text-light);
       }
-    }
 
-    canvas#snow {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
-  </style>
-</head>
-<body>
-  <button class="toggle-btn" id="toggleMode"><i class="fas fa-moon"></i></button>
-  <button class="toggle-btn music-btn" id="toggleMusic">
-    <i class="fas fa-play"></i>
-  </button>
+      @keyframes bgFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
 
-  <div class="container">
-    <img
-      src="fotoo1.jpg"
-      alt="Foto Profil"
-      class="profile-img"
-    />
-    <h1>MUHAMMAD LATIFUL MINAN</h1>
-    <div class="bio" id="bioText"></div>
+      .container {
+        max-width: 450px;
+        margin: 60px auto;
+        text-align: center;
+        position: relative;
+        padding: 20px;
+      }
 
-    <div class="links">
-      <a href="https://www.instagram.com/kopihitam.______/" target="_blank"
-        ><i class="fab fa-instagram"></i> Instagram</a
-      >
-      <a href="https://wa.me/628xxxx" target="_blank"
-        ><i class="fab fa-whatsapp"></i> WhatsApp</a
-      >
-      <a href="https://www.youtube.com/@muhamadlatifulminan27" target="_blank"
-        ><i class="fab fa-youtube"></i> YouTube</a
-      >
-      <a href="https://www.tiktok.com/@kopiihitam_27?lang=id-ID"
-        ><i class="fas fa-tiktok"></i> TikTok</a
-      >
+      .profile-img {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        border: 3px solid var(--primary);
+        box-shadow: 0 0 20px var(--primary);
+        object-fit: cover;
+        margin-bottom: 15px;
+      }
+
+      h1 {
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.5em;
+        color: var(--primary);
+      }
+
+      .bio {
+        margin: 10px 0 30px;
+        font-size: 1em;
+        font-style: italic;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid var(--primary);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 1.3em;
+      }
+
+      .links a {
+        display: block;
+        margin: 12px auto;
+        max-width: 300px;
+        padding: 12px;
+        background: var(--link-bg);
+        color: var(--primary);
+        text-decoration: none;
+        border: 1px solid var(--primary);
+        border-radius: 12px;
+        backdrop-filter: blur(4px);
+        transition: all 0.4s ease;
+        animation: fadeInLink 0.6s ease forwards;
+        opacity: 0;
+      }
+
+      .links a:hover {
+        background: var(--link-hover);
+        transform: scale(1.05);
+        box-shadow: 0 0 15px var(--primary);
+      }
+
+      .links a i {
+        margin-right: 10px;
+      }
+
+      .toggle-btn {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 100;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .music-btn {
+        top: 65px;
+      }
+
+      .toggle-btn:hover {
+        background: var(--primary);
+        color: #000;
+      }
+
+      @keyframes fadeInLink {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      canvas#snow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      @media (max-width: 500px) {
+        .container {
+          margin: 30px 15px;
+        }
+
+        .profile-img {
+          width: 120px;
+          height: 120px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="toggle-btn" id="toggleMode" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+    <button class="toggle-btn music-btn" id="toggleMusic" aria-label="Toggle Music"><i class="fas fa-play"></i></button>
+
+    <div class="container">
+      <img src="fotoo1.jpg" alt="Foto Profil" class="profile-img" />
+      <h1>MUHAMMAD LATIFUL MINAN</h1>
+      <div class="bio" id="bioText"></div>
+      <div class="links">
+        <a href="https://www.instagram.com/kopihitam.______/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://wa.me/628xxxx" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://www.youtube.com/@muhamadlatifulminan27" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="https://www.tiktok.com/@kopiihitam_27?lang=id-ID" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+      </div>
     </div>
-  </div>
 
-  <canvas id="snow"></canvas>
+    <canvas id="snow"></canvas>
 
-  <audio id="bgMusic" loop>
-    <source
-      src="https://www.bensound.com/bensound-music/bensound-energy.mp3"
-      type="audio/mp3"
-    />
-  </audio>
-  <audio
-    id="clickSound"
-    src="https://www.soundjay.com/buttons/sounds/button-16.mp3"
-    preload="auto"
-  ></audio>
+    <audio id="bgMusic" loop>
+      <source src="https://www.bensound.com/bensound-music/bensound-energy.mp3" type="audio/mp3" />
+    </audio>
+    <audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3" preload="auto"></audio>
 
-  <script>
-    // Efek ketik
-    const text = "👋 Halo, bro! KEPO YAAAAAAA HAHAHAHAHAHAHAHAHA.";
-    let i = 0;
-    const speed = 50;
-    function typeEffect() {
-      if (i < text.length) {
-        document.getElementById("bioText").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeEffect, speed);
-      } else {
-        document.getElementById("bioText").style.borderRight = "none";
+    <script>
+      // Efek ketik
+      const text = "👋 Halo, bro! KEPO YAAAAAAA HAHAHAHAHAHAHAHAHA.";
+      let i = 0;
+      const speed = 50;
+      function typeEffect() {
+        if (i < text.length) {
+          document.getElementById("bioText").innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typeEffect, speed);
+        } else {
+          document.getElementById("bioText").style.borderRight = "none";
+        }
       }
-    }
-    window.onload = () => {
-      typeEffect();
-      startSnow();
-    };
+      window.onload = () => {
+        typeEffect();
+        startSnow();
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('sw.js');
+        }
+      };
 
-    // Klik suara
-    const clickSound = document.getElementById("clickSound");
-    document.querySelectorAll(".links a").forEach((el) => {
-      el.addEventListener("click", () => {
-        clickSound.currentTime = 0;
-        clickSound.play();
+      // Suara klik
+      const clickSound = document.getElementById("clickSound");
+      document.querySelectorAll(".links a").forEach((el) => {
+        el.addEventListener("click", () => {
+          clickSound.currentTime = 0;
+          clickSound.play();
+        });
       });
-    });
 
-    // Mode toggle
-    document.getElementById("toggleMode").addEventListener("click", () => {
-      document.body.classList.toggle("light");
-      const icon = document.body.classList.contains("light")
-        ? "sun"
-        : "moon";
-      document.getElementById("toggleMode").innerHTML = `<i class="fas fa-${icon}"></i>`;
-    });
+      // Mode toggle
+      document.getElementById("toggleMode").addEventListener("click", () => {
+        document.body.classList.toggle("light");
+        const icon = document.body.classList.contains("light") ? "sun" : "moon";
+        document.getElementById("toggleMode").innerHTML = `<i class="fas fa-${icon}"></i>`;
+      });
 
-    // Musik kontrol
-    const music = document.getElementById("bgMusic");
-    let isPlaying = false;
-    document.getElementById("toggleMusic").addEventListener("click", () => {
-      if (!isPlaying) {
-        music.play();
-        document.getElementById("toggleMusic").innerHTML =
-          '<i class="fas fa-pause"></i>';
-      } else {
-        music.pause();
-        document.getElementById("toggleMusic").innerHTML =
-          '<i class="fas fa-play"></i>';
-      }
-      isPlaying = !isPlaying;
-    });
-
-    // Efek salju
-    function startSnow() {
-      const canvas = document.getElementById("snow");
-      const ctx = canvas.getContext("2d");
-      let width = (canvas.width = window.innerWidth);
-      let height = (canvas.height = window.innerHeight);
-      let snowflakes = [];
-
-      function createFlakes() {
-        for (let i = 0; i < 100; i++) {
-          snowflakes.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            r: Math.random() * 3 + 1,
-            d: Math.random() * 1 + 0.5,
-          });
+      // Musik
+      const music = document.getElementById("bgMusic");
+      let isPlaying = false;
+      document.getElementById("toggleMusic").addEventListener("click", () => {
+        if (!isPlaying) {
+          music.play();
+          document.getElementById("toggleMusic").innerHTML = '<i class="fas fa-pause"></i>';
+        } else {
+          music.pause();
+          document.getElementById("toggleMusic").innerHTML = '<i class="fas fa-play"></i>';
         }
-      }
+        isPlaying = !isPlaying;
+      });
 
-      function drawFlakes() {
-        ctx.clearRect(0, 0, width, height);
-        ctx.fillStyle = "rgba(255,255,255,0.7)";
-        ctx.beginPath();
-        for (let flake of snowflakes) {
-          ctx.moveTo(flake.x, flake.y);
-          ctx.arc(flake.x, flake.y, flake.r, 0, Math.PI * 2, true);
+      // Salju
+      function startSnow() {
+        const canvas = document.getElementById("snow");
+        const ctx = canvas.getContext("2d");
+        let width = (canvas.width = window.innerWidth);
+        let height = (canvas.height = window.innerHeight);
+        let snowflakes = [];
+
+        function createFlakes() {
+          for (let i = 0; i < 100; i++) {
+            snowflakes.push({
+              x: Math.random() * width,
+              y: Math.random() * height,
+              r: Math.random() * 3 + 1,
+              d: Math.random() * 1 + 0.5,
+            });
+          }
         }
-        ctx.fill();
-        moveFlakes();
-      }
 
-      function moveFlakes() {
-        for (let flake of snowflakes) {
-          flake.y += flake.d;
-          if (flake.y > height) flake.y = 0;
+        function drawFlakes() {
+          ctx.clearRect(0, 0, width, height);
+          ctx.fillStyle = "rgba(255,255,255,0.7)";
+          ctx.beginPath();
+          for (let flake of snowflakes) {
+            ctx.moveTo(flake.x, flake.y);
+            ctx.arc(flake.x, flake.y, flake.r, 0, Math.PI * 2, true);
+          }
+          ctx.fill();
+          moveFlakes();
         }
+
+        function moveFlakes() {
+          for (let flake of snowflakes) {
+            flake.y += flake.d;
+            if (flake.y > height) flake.y = 0;
+          }
+        }
+
+        function loop() {
+          drawFlakes();
+          requestAnimationFrame(loop);
+        }
+
+        createFlakes();
+        loop();
       }
-
-      function loop() {
-        drawFlakes();
-        requestAnimationFrame(loop);
-      }
-
-      createFlakes();
-      loop();
-    }
-
-    window.addEventListener("resize", () => {
-      const canvas = document.getElementById("snow");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
